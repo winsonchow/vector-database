@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "12345-abcd-6789-efgh",
+		"name": "Qdrant FastAPI Vector Database",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ingest Document",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"doc1\",\n    \"vector\": [0.12, 0.54, 0.33, 0.72, 0.44, 0.89, 0.66, 0.34],\n    \"text\": \"Machine learning is a field of artificial intelligence.\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/ingest",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"ingest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Documents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query_vector\": [0.15, 0.50, 0.35, 0.70, 0.40, 0.85, 0.60, 0.30],\n    \"top_k\": 3\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/query",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
